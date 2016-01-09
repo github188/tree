@@ -7,14 +7,14 @@
 #define ARRARY_SIZE(a) ((sizeof(a)) /(sizeof((a)[0])))
 
 #if 0
-#define RADIX_TREE_MAP_SHIFT 8
+#define RADIX_TREE_MAP_SHIFT 6  /*值为6时，表示每个结点有2^6＝64个slot，值为4时，表示有2^4=16个slot*/
 #define RADIX_TREE_MAP_SIZE (1 <<RADIX_TREE_MAP_SHIFT )
 #define RADIX_TREE_MAP_MASK (RADIX_TREE_MAP_SIZE - 1)
 #define RADIX_TREE_INDEX_BITS (8*sizeof(unsigned int))
 #define RADIX_TREE_MAX_PATH (RADIX_TREE_INDEX_BITS / TADIX_TREE_MAP_SHIFT + 1)
 #endif
-#define RADIX_TREE_MAP_SHIFT 3
-#define RADIX_TREE_MAP_SIZE (1 << RADIX_TREE_MAP_SHIFT)
+#define RADIX_TREE_MAP_SHIFT 3 
+#define RADIX_TREE_MAP_SIZE (1 << RADIX_TREE_MAP_SHIFT) /*表示1个叶子结点可映射的页数，如：1<<6=64，表示可映射64个slot映射64页*/
 #define RADIX_TREE_MAP_MASK (RADIX_TREE_MAP_SIZE - 1)
 #define RADIX_TREE_INDEX_BITS (8 * sizeof(unsigned int))
 #define RADIX_TREE_MAX_PATH ( 4 )
